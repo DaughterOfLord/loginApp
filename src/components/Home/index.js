@@ -4,10 +4,10 @@ import './index.css'
 
 import Message from '../Message'
 import Login from '../Login'
-import Logout from '../Logouts'
+import Logout from '../Logout'
 
 class Home extends Component {
-  state = {isLogin: false}
+  state = {isLogin: true}
 
   changeStatus = () => {
     const {isLogin} = this.state
@@ -20,24 +20,23 @@ class Home extends Component {
     let messageEle
     let btnEle
 
-    if (isLogin) {
-      messageEle = <Message content="Welcome, User" />
-      btnEle = <Login changeStatus={this.changeStatus} />
-    } else {
+    if (isLogin === true) {
       messageEle = <Message content="Please Login" />
       btnEle = <Logout changeStatus={this.changeStatus} />
+    } else {
+      messageEle = <Message content="Welcome User" />
+      btnEle = <Login changeStatus={this.changeStatus} />
     }
-  }
 
-  return (
-    <div className="container">
-      <div className="card-container">
-        {messageEle}
-        {btnEle}
+    return (
+      <div className="container">
+        <div className="card-container">
+          {messageEle}
+          {btnEle}
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
-
 
 export default Home

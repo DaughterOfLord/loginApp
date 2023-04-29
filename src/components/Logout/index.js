@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 // Write your code here
+import './index.css'
+
 const Logout = props => {
   const {changeStatus} = props
 
